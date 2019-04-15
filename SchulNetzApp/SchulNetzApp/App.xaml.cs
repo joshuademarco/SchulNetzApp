@@ -27,5 +27,7 @@ namespace SchulNetzApp
         {
             // Handle when your app resumes
         }
+
+    
     }
 }

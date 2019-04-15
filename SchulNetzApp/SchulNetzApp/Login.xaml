@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SchulNetzApp.Login">
     <ContentPage.Content>
-        <StackLayout ClassId="" Margin="50,20,0,0">
+        <StackLayout ClassId="" Margin="50,20,50,0">
 
 
             <Label Text="Anmelden" FontSize="32" ClassId="title" Margin="0,0,20,50"/>
@@ -11,7 +11,8 @@
             
             <Entry Placeholder="Benutzername" InputTransparent="false" IsSpellCheckEnabled="False" Keyboard="Email" MaxLength="30" x:Name="UserInput" VerticalOptions="Center"/>
             <Entry Placeholder="Passwort" InputTransparent="False" IsSpellCheckEnabled="False" Keyboard="Default" MaxLength="50" x:Name="PassInput" IsPassword="True" IsTextPredictionEnabled="False" VerticalOptions="Center"/>
-            
+
+            <Button x:Name="LoginBtn" BackgroundColor="#2695D7" Text="Login" Clicked="Login_click"></Button>
             
         </StackLayout>
     </ContentPage.Content>
