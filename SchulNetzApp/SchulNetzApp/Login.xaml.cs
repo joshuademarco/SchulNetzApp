@@ -24,10 +24,10 @@ namespace SchulNetzApp
         private async void Login_click(object sender, EventArgs args)
         {
 
-            if (UserInput.Text.Length == 0 || PassInput.Text.Length == 0) //<--- not wworking
+            if (string.IsNullOrEmpty(UserInput.Text) || string.IsNullOrEmpty(PassInput.Text))
             {
                 throw new ApplicationException("Nothing Filled in");
-                
+
             }
 
             WebClient client = new WebClient();

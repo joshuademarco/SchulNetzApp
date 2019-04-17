@@ -13,7 +13,8 @@
 
 
         <Button Text="LoginPage" Clicked="NavigateButton_OnClicked"/>
-        
+
+
     </StackLayout>
 
 </ContentPage>
