@@ -24,17 +24,27 @@ namespace SchulNetzApp
         private async void Login_click(object sender, EventArgs args)
         {
 
-            if (UserInput.Text.Length == 0 || PassInput.Text.Length == 0) //<--- not wworking
+            if (string.IsNullOrEmpty(UserInput.Text) || string.IsNullOrEmpty(PassInput.Text)) //<--- not wworking
             {
                 throw new ApplicationException("Nothing Filled in");
-                
+            }else {
+
+                var usercred = new User // nicht public
+                {
+                    Username = UserInput.Text,
+                    Password = PassInput.Text
+                };
+                }
+
             }
 
-            WebClient client = new WebClient();
+        
+        public bool AreCredOk(User user) {
+            return true; //CheckOnline Referrenz
 
+        }
 
 
         }
 
     }
-}
