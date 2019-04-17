@@ -27,13 +27,26 @@ namespace SchulNetzApp
             if (string.IsNullOrEmpty(UserInput.Text) || string.IsNullOrEmpty(PassInput.Text)) //<--- not wworking
             {
                 throw new ApplicationException("Nothing Filled in");
-            }else {
+            }else{
 
                 var usercred = new User // nicht public
                 {
                     Username = UserInput.Text,
                     Password = PassInput.Text
                 };
+
+                var isValid = AreCredOk(usercred);
+                if (isValid) {
+                    App.IsUserLoggedIn = true;
+                    Navigation.PushAsync() // Navigate new Main as Mainpage;
+                    //Do Tick Animation
+                }
+                else
+                { 
+                    //Make Cross Animation
+                }
+            
+
                 }
 
             }
@@ -41,7 +54,6 @@ namespace SchulNetzApp
         
         public bool AreCredOk(User user) {
             return true; //CheckOnline Referrenz
-
         }
 
 

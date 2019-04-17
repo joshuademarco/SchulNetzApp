@@ -28,9 +28,8 @@ namespace SchulNetzApp.Code
 
                     Console.WriteLine(responseBody);
                 }
-                catch {
-
-
+                catch (HttpRequestException e){
+                    throw new ApplicationException("");
                 }
 
 
