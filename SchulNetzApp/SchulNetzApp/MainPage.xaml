@@ -4,12 +4,19 @@
              xmlns:local="clr-namespace:SchulNetzApp"
              x:Class="SchulNetzApp.MainPage">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-
+    <StackLayout Margin="50,20,50,0">
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <Label Text="Noten" FontSize="30" ClassId="title" Margin="0,0,20,50"/>
+        <TableView x:Name="Noten"></TableView>
 
 
         <Button Text="LoginPage" Clicked="NavigateButton_OnClicked"/>
