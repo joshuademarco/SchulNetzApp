@@ -9,18 +9,23 @@ namespace SchulNetzApp
     [DesignTimeVisible(true)]
     public partial class MainPage : ContentPage
     {
+        
+
+
+
         public MainPage()
         {
             InitializeComponent();
-        }
+            if (!App.IsUserLoggedIn){Navigation.PushModalAsync(new Login());} //check if logged in
+            }
+        
 
 
 
 
         private async void NavigateButton_OnClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Login());
-
+            await Navigation.PushModalAsync(new Login());
         }
 
 

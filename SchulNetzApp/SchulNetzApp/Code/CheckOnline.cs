@@ -22,8 +22,7 @@ namespace SchulNetzApp.Code
                 {
 
                     string responseBody = await client.GetStringAsync(url);
-
-
+                    //client.DefaultRequestHeaders.Add("Content-Type", "application/json");
 
                     Device.BeginInvokeOnMainThread(() => { Debug.WriteLine(responseBody); });
                     return true;
