@@ -5,16 +5,12 @@
              x:Class="SchulNetzApp.MainPage">
 
     <StackLayout Margin="50,20,50,0">
-       
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
         <Label Text="Noten" FontSize="30" ClassId="title" Margin="0,0,20,50"/>
         <TableView x:Name="Noten"></TableView>
 

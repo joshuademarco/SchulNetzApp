@@ -21,10 +21,10 @@ namespace SchulNetzApp.Code
                 try
                 {
 
-                    string responseBody = await client.GetStringAsync(url);
+                    //string responseBody = await client.GetStringAsync(url);
                     //client.DefaultRequestHeaders.Add("Content-Type", "application/json");
-
-                    Device.BeginInvokeOnMainThread(() => { Debug.WriteLine(responseBody); });
+                    //client.DefaultRequestHeaders.Add("User-Agent", "Mozilla 5.0 (Windows)");
+                    //Device.BeginInvokeOnMainThread(() => { Debug.WriteLine(responseBody); });
                     return true;
 
                 }
