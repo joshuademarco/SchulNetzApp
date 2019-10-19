@@ -11,7 +11,7 @@ namespace SchulNetzApp.Code
 
 
 
-        public static async Task<bool> checkonline(User usercred)
+        public static bool Checkonline(User usercred)
         {
             string url = "https://www.schul-netz.com/unterstrass/loginto.php?pageid=21311";
 

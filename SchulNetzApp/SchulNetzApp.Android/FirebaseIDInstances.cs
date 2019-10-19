@@ -14,11 +14,13 @@ using Firebase.Iid;
 
 namespace SchulNetzApp.Droid
 {
+    [Obsolete]
     [Service]
     [IntentFilter(new[] { "com.google.firebase.INSTANCE_ID_EVENT" })]
 
     public class FirebaseIDInstances:FirebaseInstanceIdService
     {
+        [Obsolete]
         public override void OnTokenRefresh()
         {
             var refreshedToken = FirebaseInstanceId.Instance.Token;
