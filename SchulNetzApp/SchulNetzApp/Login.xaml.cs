@@ -35,7 +35,7 @@ namespace SchulNetzApp
                 };
 
                 var isValid = AreCredOk(usercred);
-                if (await isValid)
+                if (isValid)
                 {
 
 
@@ -59,9 +59,9 @@ namespace SchulNetzApp
 
 
 
-        public async Task<bool> AreCredOk(User usercred)
+        public bool AreCredOk(User usercred)
         {
-            return await Code.CheckOnline.checkonline(usercred); //CheckOnline-Refferenz DIDIT!
+            return Code.CheckOnline.Checkonline(usercred); //CheckOnline-Refferenz DIDIT!
         }
 
     }
