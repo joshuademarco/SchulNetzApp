@@ -14,7 +14,9 @@ namespace SchulNetzApp.Droid
     [Activity(Label = "SchulNetzApp", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+#pragma warning disable CS0649 // Field 'MainActivity.msgText' is never assigned to, and will always have its default value null
         TextView msgText;
+#pragma warning restore CS0649 // Field 'MainActivity.msgText' is never assigned to, and will always have its default value null
         protected override void OnCreate(Bundle savedInstanceState)
         {
             TabLayoutResource = Resource.Layout.Tabbar;

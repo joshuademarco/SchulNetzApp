@@ -72,7 +72,7 @@
     <Compile Include="FirebaseIDInstances.cs" />
     <Compile Include="FirebaseService.cs" />
     <Compile Include="MainActivity.cs" />
-    <Content Include="Resources\layout\activity_main.axml" />
+    <AndroidResource Include="Resources\layout\activity_main.axml" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
