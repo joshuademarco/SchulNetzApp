@@ -14,9 +14,7 @@ namespace SchulNetzApp.Droid
     [Activity(Label = "SchulNetzApp", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
-#pragma warning disable CS0649 // Field 'MainActivity.msgText' is never assigned to, and will always have its default value null
         TextView msgText;
-#pragma warning restore CS0649 // Field 'MainActivity.msgText' is never assigned to, and will always have its default value null
         protected override void OnCreate(Bundle savedInstanceState)
         {
             TabLayoutResource = Resource.Layout.Tabbar;
@@ -29,14 +27,12 @@ namespace SchulNetzApp.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
-            SetContentView(Resource.Layout.activity_main);
 
 
             IsPlayServicesAvailable();
 
 
         }
-
         private bool IsPlayServicesAvailable()
         {
             int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
@@ -44,7 +40,7 @@ namespace SchulNetzApp.Droid
             {
                 if (GoogleApiAvailability.Instance.IsUserResolvableError(resultCode))
                 {
-                    msgText.Text = GoogleApiAvailability.Instance.GetErrorString(resultCode);
+                    msgText.Text = "Dive has an error";
                 }
                 else
                 {
@@ -54,7 +50,7 @@ namespace SchulNetzApp.Droid
                 }
                 else
                 {
-                    msgText.Text = "Google Play Services is available";
+                    //msgText.Text = "Google Play Services is available";
                     FirebaseMessaging.Instance.SubscribeToTopic("SchulNetz_topic");
                     return true;
                 }
