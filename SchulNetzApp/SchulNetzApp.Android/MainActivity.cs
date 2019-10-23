@@ -8,6 +8,7 @@ using Android.OS;
 using Android.Gms.Common;
 using Android.Support.V7.App;
 using Firebase.Messaging;
+using Firebase;
 
 namespace SchulNetzApp.Droid
 {
@@ -26,6 +27,7 @@ namespace SchulNetzApp.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            FirebaseApp.InitializeApp(Application.Context);
             LoadApplication(new App());
 
 
@@ -38,18 +40,13 @@ namespace SchulNetzApp.Droid
             int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
             if (resultCode != ConnectionResult.Success)
             {
-                if (GoogleApiAvailability.Instance.IsUserResolvableError(resultCode))
-                {
+                if (GoogleApiAvailability.Instance.IsUserResolvableError(resultCode)) {
                     msgText.Text = "Dive has an error";
-                }
-                else
-                {
+                } else {
                     msgText.Text = "This device is not supported";
-                }
+                } 
                 return false;
-                }
-                else
-                {
+                } else {
                     //msgText.Text = "Google Play Services is available";
                     FirebaseMessaging.Instance.SubscribeToTopic("SchulNetz_topic");
                     return true;

@@ -61,7 +61,10 @@ namespace SchulNetzApp
 
         public bool AreCredOk(User usercred)
         {
-            return Code.CheckOnline.Checkonline(usercred); //CheckOnline-Refferenz DIDIT!
+            if ()
+            {
+
+            }
         }
 
     }
