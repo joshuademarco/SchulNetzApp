@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Android.App;
@@ -10,19 +11,38 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Firebase.Auth;
+using SchulNetzApp.Droid.Code;
+using Xamarin.Forms;
 
+
+
+[assembly: Xamarin.Forms.Dependency(typeof(AndroidFirebaseAuthenticator))]
+    
 namespace SchulNetzApp.Droid.Code
 {
+
     public class AndroidFirebaseAuthenticator : IFirebaseAuthenticator
     {
-        public async Task<string> LoginWithUserPassword(User usercred)
+        public async Task<string> LoginWithEmailPassword(string username, string password)
         {
-            var cred = await FirebaseAuth.Instance.
-                SignInWithEmailAndPasswordAsync(usercred.Username, usercred.Password);
-            var token = await cred.User.GetIdTokenAsync(false);
-            return token.Token;
-
+            try
+            {
+                
+                var user = await FirebaseAuth.Instance.
+                    SignInWithEmailAndPasswordAsync(username, password);
+                var token = await user.User.GetIdTokenAsync(false);
+                return token.Token;
+            }
+            catch (FirebaseAuthInvalidUserException e)
+            {
+                e.PrintStackTrace();
+                return "";
+            }
         }
+
+
+        
+
 
     }
 }

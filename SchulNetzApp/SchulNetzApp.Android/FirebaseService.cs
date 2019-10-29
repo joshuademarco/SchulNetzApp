@@ -13,6 +13,7 @@ using Android.Views;
 using Android.Widget;
 using Firebase.Messaging;
 
+
 namespace SchulNetzApp.Droid
 {
     [Service]

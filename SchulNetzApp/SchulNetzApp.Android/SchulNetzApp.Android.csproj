@@ -78,15 +78,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Code\AndroidFirebaseAuthenticator.cs" />
-    <Compile Include="FirebaseIDInstances.cs" />
-    <Compile Include="FirebaseService.cs" />
     <Compile Include="MainActivity.cs" />
     <AndroidResource Include="Resources\layout\activity_main.axml" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <GoogleServicesJson Include="google-services.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
@@ -125,4 +122,7 @@
     <AndroidResource Include="Resources\drawable\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <ItemGroup>
+    <GoogleServicesJson Include="google-services.json" />
+  </ItemGroup>
 </Project>
