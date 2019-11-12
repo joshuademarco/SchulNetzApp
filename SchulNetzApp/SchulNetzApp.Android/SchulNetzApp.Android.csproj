@@ -36,6 +36,7 @@
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
     <BundleAssemblies>false</BundleAssemblies>
     <MandroidI18n />
+    <AndroidSupportedAbis />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,6 +47,12 @@
     <WarningLevel>4</WarningLevel>
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+    <BundleAssemblies>false</BundleAssemblies>
+    <AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
+    <AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a</AndroidSupportedAbis>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -78,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Code\AndroidFirebaseAuthenticator.cs" />
+    <Compile Include="Code\MyEntryRenderer.cs" />
     <Compile Include="MainActivity.cs" />
     <AndroidResource Include="Resources\layout\activity_main.axml" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -125,4 +133,73 @@
   <ItemGroup>
     <GoogleServicesJson Include="google-services.json" />
   </ItemGroup>
+  <Target Name="FirebasePerfTask" BeforeTargets="_CreateBaseApk">
+    <_RewriteManifest Path="$(IntermediateOutputPath)android\AndroidManifest.xml" />
+  </Target>
+  <UsingTask TaskName="_RewriteManifest" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+    <ParameterGroup>
+      <Path ParameterType="System.String" Required="True" />
+    </ParameterGroup>
+    <Task>
+      <Using Namespace="System.Text.RegularExpressions" />
+      <Code Type="Fragment" Language="cs"><![CDATA[
+        //
+        // This is a workaround for bug https://github.com/xamarin/GooglePlayServicesComponents/issues/216
+        // where multiple <service ComponentDiscoveryService> are being overwritten in the AndroidManifest.xml 
+        // by the last XML definition instead of being merged into a single definition.
+        //
+        // The solution is to capture all services named ComponentDiscoveryService from the AndroidManifest.xml
+        // before it is used to create the Android APK. If there are many ComponentDiscoveryService, replace
+        // all definitions with an empty string except the last one which will be used as the merged service.
+        // Simply put the content of all services into this one to get a final merged service.
+        // 
+        // By doing so, all components are properly registered and we no longer have NullReferenceExceptions.
+        // This will need to be fixed in Xamarin.Android.
+        //
+
+				var manifest = File.ReadAllText(Path);
+				var matches = Regex.Matches(manifest, "(<service android:name=\"com\\.google\\.firebase\\.components\\.ComponentDiscoveryService\").*?(<\\/service>)", RegexOptions.Singleline);
+
+        // There are multiple ComponentDiscoveryService definitions, we will need to merge them.
+        if (matches.Count > 1)
+        {
+          var newManifest = manifest;
+
+          var serviceContent = new List<string>();
+          for (var i = 0; i < matches.Count; i++)
+          {
+            var m = matches[i];
+
+            // Capture the content of the service to merge it later with all the other ones.
+            var innerMatches = Regex.Matches(m.Value, "<service[\\s\\S]*?>([\\s\\S]*?)<\\/service>");
+            if (innerMatches.Count > 0)
+            {
+              var firstMatch = innerMatches[0];
+              if (firstMatch.Groups.Count > 1)
+              {
+                var capture = innerMatches[0].Groups[1].Value;
+                serviceContent.Add(capture);
+              }
+            }
+
+            // This is not the last occurrence, remove it from the AndroidManifest.
+            if (i < matches.Count - 1)
+            {
+              newManifest = newManifest.Replace(m.Value, "");
+            }
+            // This is the last occurrence, use it to merge all the service definitions.
+            else
+            {
+              var lastContent = serviceContent[serviceContent.Count - 1];
+              var updatedContent = string.Join("\n", serviceContent);
+              newManifest = newManifest.Replace(lastContent, updatedContent);
+            }  
+          }
+
+          // Replace the AndroidManifest.
+          File.WriteAllText(Path, newManifest);
+        }
+	]]></Code>
+    </Task>
+  </UsingTask>
 </Project>

@@ -16,7 +16,7 @@ namespace SchulNetzApp
         public MainPage()
         {
             InitializeComponent();
-            if (!App.IsUserLoggedIn){Navigation.PushModalAsync(new Login());} //check if logged in
+            //if (!App.IsUserLoggedIn){Navigation.PushModalAsync(new Login());} //check if logged in
             }
         
 

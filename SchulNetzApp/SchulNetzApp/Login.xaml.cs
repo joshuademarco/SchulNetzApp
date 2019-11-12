@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -16,9 +17,14 @@ namespace SchulNetzApp
         {
             InitializeComponent();
             IAuth = DependencyService.Get<IFirebaseAuthenticator>();
+
+
+            
+            
+
         }
 
-
+        public Effect shadoweffect = Effect.Resolve("SchulNetz.ShadowEffect");
 
 
 
@@ -27,6 +33,8 @@ namespace SchulNetzApp
 
             if (string.IsNullOrEmpty(UserInput.Text) || string.IsNullOrEmpty(PassInput.Text))
             {
+                
+                
                 throw new ApplicationException("Nothing Filled in");
 
             }
@@ -39,7 +47,7 @@ namespace SchulNetzApp
                     Password = PassInput.Text
                 };
 
-                
+
 
                 //var isValid = AreCredOk(usercred);
                  //isValid
@@ -48,12 +56,16 @@ namespace SchulNetzApp
                     string Token = await IAuth.LoginWithEmailPassword(usercred.Username, usercred.Password);
                     if (Token != null)
                     {
-                        await Navigation.PushModalAsync(new MainPage());
+                    UserInput.Effects.Add(shadoweffect);
+                    Device.BeginInvokeOnMainThread(() => { Debug.WriteLine("Login with Firebase Succesfull. Firebase UserToken: {0})", Token); });
+
+                    await Navigation.PushModalAsync(new MainPage());
                     }
                     else
                     {
-                        //ShowError(usercred);
-                    }
+
+                    Device.BeginInvokeOnMainThread(() => { Debug.WriteLine("Login with Firebase Failed. Firebase UserToken: {0})", Token); });
+                }
 
                     //App.IsUserLoggedIn = true;
 

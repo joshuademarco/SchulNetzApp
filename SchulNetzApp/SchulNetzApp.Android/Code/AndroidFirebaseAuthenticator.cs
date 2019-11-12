@@ -21,10 +21,14 @@ using Xamarin.Forms;
 namespace SchulNetzApp.Droid.Code
 {
 
+
     public class AndroidFirebaseAuthenticator : IFirebaseAuthenticator
     {
+
         public async Task<string> LoginWithEmailPassword(string username, string password)
         {
+
+
             try
             {
                 
@@ -34,9 +38,10 @@ namespace SchulNetzApp.Droid.Code
                 return token.Token;
             }
             catch (FirebaseAuthInvalidUserException e)
+
             {
-                e.PrintStackTrace();
-                return "";
+                Console.WriteLine("Exception #001");
+                return null;
             }
         }
 

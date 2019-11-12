@@ -8,12 +8,13 @@
 
             <Label Text="Anmelden" FontSize="30" ClassId="title" Margin="0,0,20,50"/>
             <Label Text="Gib deine Anmeldedaten für SchulNetz.com ein" FontSize="16" Margin="0,0,0,10" Opacity="0.8" />
-            
-            <Entry Placeholder="Benutzername" InputTransparent="false" IsSpellCheckEnabled="False" Keyboard="Email" MaxLength="30" x:Name="UserInput" VerticalOptions="Center"/>
+
+            <Entry Placeholder="Benutzername" InputTransparent="false" IsSpellCheckEnabled="False" Keyboard="Email" MaxLength="30" x:Name="UserInput" VerticalOptions="Center" IsTextPredictionEnabled="True" />
             <Entry Placeholder="Passwort" InputTransparent="False" IsSpellCheckEnabled="False" Keyboard="Default" MaxLength="50" x:Name="PassInput" IsPassword="True" IsTextPredictionEnabled="False" VerticalOptions="Center"/>
 
             <Button x:Name="LoginBtn" BackgroundColor="#2695D7" Text="Login" Clicked="Login_click"></Button>
-            
+
+                        
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -9,6 +9,12 @@ namespace SchulNetzApp
         public static bool IsUserLoggedIn { get; set; }
         public App()
         {
+            var tabbedpage = new TabbedPage();
+            {
+                tabbedpage.Children.Add(new Login());
+            }
+
+
             InitializeComponent();
 
             if (!IsUserLoggedIn)
