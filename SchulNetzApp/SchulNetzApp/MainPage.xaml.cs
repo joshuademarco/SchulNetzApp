@@ -7,7 +7,7 @@ namespace SchulNetzApp
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(true)]
-    public partial class MainPage : ContentPage
+    public partial class MainPage : TabbedPage
     {
         
 
@@ -16,7 +16,7 @@ namespace SchulNetzApp
         public MainPage()
         {
             InitializeComponent();
-            //if (!App.IsUserLoggedIn){Navigation.PushModalAsync(new Login());} //check if logged in
+            if (!App.IsUserLoggedIn){Navigation.PushModalAsync(new Login());} //check if logged in
             }
         
 
@@ -25,7 +25,7 @@ namespace SchulNetzApp
 
         private async void NavigateButton_OnClicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new Login());
+            await Navigation.PushModalAsync(new Login(),true ); Navigation.RemovePage(this);
         }
 
 

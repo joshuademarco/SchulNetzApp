@@ -17,14 +17,11 @@ namespace SchulNetzApp
         {
             InitializeComponent();
             IAuth = DependencyService.Get<IFirebaseAuthenticator>();
-
-
-            
             
 
         }
 
-        public Effect shadoweffect = Effect.Resolve("SchulNetz.ShadowEffect");
+        //public Effect shadoweffect = Effect.Resolve("SchulNetz.ShadowEffect");
 
 
 
@@ -48,29 +45,21 @@ namespace SchulNetzApp
                 };
 
 
-
-                //var isValid = AreCredOk(usercred);
-                 //isValid
                 
 
                     string Token = await IAuth.LoginWithEmailPassword(usercred.Username, usercred.Password);
                     if (Token != null)
                     {
-                    UserInput.Effects.Add(shadoweffect);
                     Device.BeginInvokeOnMainThread(() => { Debug.WriteLine("Login with Firebase Succesfull. Firebase UserToken: {0})", Token); });
-
-                    await Navigation.PushModalAsync(new MainPage());
+                    await Navigation.PushModalAsync(new MainPage(), true);
                     }
                     else
                     {
-
+                    UserInput.TextColor = Color.FromHex("#ff1f0f");
                     Device.BeginInvokeOnMainThread(() => { Debug.WriteLine("Login with Firebase Failed. Firebase UserToken: {0})", Token); });
                 }
 
                     //App.IsUserLoggedIn = true;
-
-                    // Navigate new Main as Mainpage
-                    //await Navigation.PushModalAsync(new MainPage());
 
                     //Do Tick Animation
 

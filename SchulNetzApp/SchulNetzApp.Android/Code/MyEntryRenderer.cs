@@ -28,9 +28,9 @@ namespace SchulNetzApp.Droid.Code
             if (Control == null || e.NewElement == null) return;
 
             if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
-                Control.BackgroundTintList = ColorStateList.ValueOf(Android.Graphics.Color.White);
+                Control.BackgroundTintList = ColorStateList.ValueOf(Android.Graphics.Color.Red);
             else
-                Control.Background.SetColorFilter(Android.Graphics.Color.White, PorterDuff.Mode.SrcAtop);
+                Control.Background.SetColorFilter(Android.Graphics.Color.Red, PorterDuff.Mode.SrcAtop);
         }
     }
 }

@@ -31,16 +31,24 @@ namespace SchulNetzApp.Droid.Code
 
             try
             {
-                
                 var user = await FirebaseAuth.Instance.
                     SignInWithEmailAndPasswordAsync(username, password);
                 var token = await user.User.GetIdTokenAsync(false);
                 return token.Token;
             }
             catch (FirebaseAuthInvalidUserException e)
-
             {
-                Console.WriteLine("Exception #001");
+                e.GetStackTrace();
+                return null;
+            }
+            catch(FirebaseAuthEmailException e)
+            {
+                e.GetStackTrace();
+                return null;
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("An General Error occured! #002");
                 return null;
             }
         }
