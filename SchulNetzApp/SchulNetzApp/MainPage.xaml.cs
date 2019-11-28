@@ -16,18 +16,13 @@ namespace SchulNetzApp
         public MainPage()
         {
             InitializeComponent();
-            if (!App.IsUserLoggedIn){Navigation.PushModalAsync(new Login());} //check if logged in
-            }
-        
-
-
-
-
-        private async void NavigateButton_OnClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new Login(),true ); Navigation.RemovePage(this);
+            if (!App.IsUserLoggedIn){ Navigation.PushModalAsync(new Login(), true); Navigation.RemovePage(this); } //check if logged in
         }
 
 
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
+        }
     }
 }

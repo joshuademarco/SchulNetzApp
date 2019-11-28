@@ -32,8 +32,8 @@ namespace SchulNetzApp.Droid.Code
             try
             {
                 var user = await FirebaseAuth.Instance.
-                    SignInWithEmailAndPasswordAsync(username, password);
-                var token = await user.User.GetIdTokenAsync(false);
+                    SignInWithEmailAndPasswordAsync(username, password).ConfigureAwait(true);
+                var token = await user.User.GetIdTokenAsync(false).ConfigureAwait(true);
                 return token.Token;
             }
             catch (FirebaseAuthInvalidUserException e)
@@ -41,14 +41,14 @@ namespace SchulNetzApp.Droid.Code
                 e.GetStackTrace();
                 return null;
             }
-            catch(FirebaseAuthEmailException e)
+            catch (FirebaseAuthEmailException e)
             {
                 e.GetStackTrace();
                 return null;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                Console.WriteLine("An General Error occured! #002");
+                Console.WriteLine("An General Error occured! #002 {0}", e);
                 return null;
             }
         }

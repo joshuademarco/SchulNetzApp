@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
-             x:Class="SchulNetzApp.Login">
+             x:Class="SchulNetzApp.Login" BackgroundColor="#FFFFFF">
     <ContentPage.Content>
         <StackLayout ClassId="" Margin="50,20,50,0">
 
@@ -18,12 +18,11 @@
 
             <forms:AnimationView 
                 x:Name="animationView"
-	            Animation="6518-correct-check-animation.json" 
-	            Loop="True"  
-	            AutoPlay="false"
+	            Animation="{Binding AnimationFile}" 
+	            Loop="{Binding AnimationLoop}"  
+	            AutoPlay="True"
 	            VerticalOptions="FillAndExpand" 
 	            HorizontalOptions="FillAndExpand" />
-
 
         </StackLayout>
     </ContentPage.Content>

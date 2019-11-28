@@ -16,21 +16,21 @@ using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
 
-[assembly: ExportRenderer(typeof(Entry), typeof(MyEntryRenderer))]
+//[assembly: ExportRenderer(typeof(Entry), typeof(MyEntryRenderer))]
 namespace SchulNetzApp.Droid.Code
 {
-    class MyEntryRenderer : EntryRenderer
-    {
-        protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
-        {
-            base.OnElementChanged(e);
+    //class MyEntryRenderer : EntryRenderer
+    //{
+    //    protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
+    //    {
+    //        base.OnElementChanged(e);
 
-            if (Control == null || e.NewElement == null) return;
+    //        if (Control == null || e.NewElement == null) return;
 
-            if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
-                Control.BackgroundTintList = ColorStateList.ValueOf(Android.Graphics.Color.Red);
-            else
-                Control.Background.SetColorFilter(Android.Graphics.Color.Red, PorterDuff.Mode.SrcAtop);
-        }
-    }
+    //        if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
+    //            Control.BackgroundTintList = ColorStateList.ValueOf(Android.Graphics.Color.Red);
+    //        else
+    //            Control.Background.SetColorFilter(Android.Graphics.Color.Red, PorterDuff.Mode.SrcAtop);
+    //    }
+    //}
 }

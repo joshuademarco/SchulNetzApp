@@ -154,6 +154,15 @@
       <Name>SchulNetzApp</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\lf30_editor_piMsMY.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\6973-incorrect-failed.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\6518-correct-check-animation.json" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
