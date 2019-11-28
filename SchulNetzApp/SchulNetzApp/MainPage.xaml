@@ -3,22 +3,13 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:local="clr-namespace:SchulNetzApp"
             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-            x:Class="SchulNetzApp.MainPage"
-            ItemsSource="{x:Static local:DataBindings.All}">
-
-
-    <TabbedPage.ItemTemplate>
-        <DataTemplate>
-            <ContentPage Title="{Binding Name}" IconImageSource="">
-                <StackLayout Margin="20,50,20,0">
-                    <Label Text="{Binding Name}" FontSize="30" ClassId="{Binding ClasID}" Margin="0,0,20,50"/>
-                    <StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="{Binding Name}" HorizontalOptions="FillAndExpand" ClassId="{Binding ClassID}" Margin="0,0,20,50" />
-                        </StackLayout>
-                    </StackLayout>
-                </StackLayout>
-            </ContentPage>
-        </DataTemplate>
-    </TabbedPage.ItemTemplate>
+            xmlns:mypages="clr-namespace:SchulNetzApp.Pages"
+            x:Class="SchulNetzApp.MainPage">
+    
+    <TabbedPage.Children>
+        <mypages:Noten Title="Noten"/>
+        <mypages:Agenda Title="Agenda"/>
+        <mypages:Termine Title="Termine"/>
+        <mypages:Einstellungen Title="Einstellungen"/>
+    </TabbedPage.Children>
 </TabbedPage>

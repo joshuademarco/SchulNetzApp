@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:SchulNetzApp"
+            xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+            xmlns:mypages="clr-namespace:SchulNetzApp.Pages"
+            x:Class="SchulNetzApp.MainPage"
+            
+            ItemsSource="{x:Static local:DataBindings.All}">
+
+
+    <TabbedPage.ItemTemplate>
+        <DataTemplate>
+            <ContentPage Title="{Binding Name}" IconImageSource="">
+                <StackLayout Margin="20,50,20,0">
+                    <Label Text="{Binding Name}" FontSize="30" ClassId="{Binding ClasID}" Margin="0,0,20,50"/>
+                    <mypages:Page1 a/>
+                </StackLayout>
+            </ContentPage>
+        </DataTemplate>
+    </TabbedPage.ItemTemplate>
+</TabbedPage>

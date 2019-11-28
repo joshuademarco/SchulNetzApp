@@ -13,6 +13,7 @@ namespace SchulNetzApp
         public string Name { get; set; }
         public string ClassID { get; set; }
         public string LogoURL { get; set; }
+        public string Page { get; set; }
         public static IList<DataBindings> All { get; set; }
 
         static DataBindings()
@@ -23,7 +24,8 @@ namespace SchulNetzApp
                 {
                     Name = "Noten",
                     ClassID = "Class_Noten",
-                    LogoURL = ""
+                    LogoURL = "",
+                    Page = "Page1"
                 },
                 new DataBindings
                 {

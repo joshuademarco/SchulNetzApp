@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Lottie.Forms;
-
+using Xamarin.Essentials;
 namespace SchulNetzApp
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -18,10 +18,12 @@ namespace SchulNetzApp
         {
             InitializeComponent();
             IAuth = DependencyService.Get<IFirebaseAuthenticator>();
-
-           
+            OnLoad();        
         }
         
+        public async void OnLoad()
+        {
+        }
 
         public async void Login_click(object sender, EventArgs e)
         {
@@ -29,7 +31,7 @@ namespace SchulNetzApp
             animationView.Animation = "lf30_editor_piMsMY.json";
 
 
-            if (string.IsNullOrEmpty(UserInput.Text) || string.IsNullOrEmpty(PassInput.Text))
+            if (string.IsNullOrWhiteSpace(UserInput.Text) || string.IsNullOrWhiteSpace(PassInput.Text))
             {
                 animationView.Loop = false;
                 animationView.Animation = "6973-incorrect-failed.json";
@@ -37,7 +39,7 @@ namespace SchulNetzApp
             }
             else
             {
-               var usercred = new User // nicht public??
+               var usercred = new IUser // nicht public??
                 {
                     Username = UserInput.Text,
                     Password = PassInput.Text
@@ -49,18 +51,20 @@ namespace SchulNetzApp
                     string Token = await IAuth.LoginWithEmailPassword(usercred.Username, usercred.Password);
                     if (Token != null)
                     {
-                    Device.BeginInvokeOnMainThread(() => { Debug.WriteLine("Login with Firebase Succesfull. Firebase UserToken: {0})", Token); });
-                    animationView.Loop = false;
-                    animationView.Animation = "6518-correct-check-animation.json";
-                    await Task.Delay(TimeSpan.FromSeconds(2));
-                    App.IsUserLoggedIn = true;
-                    await Navigation.PushModalAsync(new MainPage(), true); 
+                        Device.BeginInvokeOnMainThread(() => { Debug.WriteLine("Login with Firebase Succesfull. Firebase UserToken: {0})", Token); });
+                        animationView.Loop = false;
+                        animationView.Animation = "6518-correct-check-animation.json";
+                        AccountStorage.SaveCredentials(usercred.Username, usercred.Password);
+                        await Task.Delay(TimeSpan.FromSeconds(2));
+                        Application.Current.Properties["IsLoggedIn"] = true;
+                        App.IsUserLoggedIn = true;
+                        await Navigation.PushModalAsync(new MainPage(), true); 
                     }
                     else
                     {
-                    animationView.Loop = false;
-                    animationView.Animation = "6973-incorrect-failed.json";
-                    Device.BeginInvokeOnMainThread(() => { Debug.WriteLine("Login with Firebase Failed. Firebase UserToken: {0})", Token); });
+                        animationView.Loop = false;
+                        animationView.Animation = "6973-incorrect-failed.json";
+                        Device.BeginInvokeOnMainThread(() => { Debug.WriteLine("Login with Firebase Failed. Firebase UserToken: {0})", Token); });
                 }
 
                     //App.IsUserLoggedIn = true;
@@ -71,7 +75,7 @@ namespace SchulNetzApp
 
         }
 
-        async public void ShowError(User a)
+        async public void ShowError(IUser a)
         {
             await DisplayAlert(a.Username + a.Password, "Email or Password are incorrect!", "OK");
         }

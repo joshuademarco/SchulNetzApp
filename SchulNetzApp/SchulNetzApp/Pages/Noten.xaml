@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SchulNetzApp.Pages.Noten"
+             Title="Noten"
+             IconImageSource="">
+
+
+    <StackLayout Margin="20,50,20,0">
+        <Label Text="Noten" FontSize="30" ClassId="Noten_Class" Margin="0,0,20,50"/>
+        
+        
+        <TableView Intent="Data" >
+            <TableRoot>
+                <TableSection Title="{Binding Fach}">
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Test}" VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding Note}" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+        
+        
+    </StackLayout>
+</ContentPage>
