@@ -6,7 +6,7 @@ using System.Text;
 
 using Xamarin.Forms;
 
-namespace SchulNetzApp.Data
+namespace SchulNetzApp
 {
     public class DataBindings
     {

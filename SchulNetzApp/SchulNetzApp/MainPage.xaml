@@ -4,7 +4,7 @@
             xmlns:local="clr-namespace:SchulNetzApp"
             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
             x:Class="SchulNetzApp.MainPage"
-            ItemsSource="{x:Static Data:DataBindings.ALL}">
+            ItemsSource="{x:Static local:DataBindings.All}">
 
 
     <TabbedPage.ItemTemplate>
@@ -21,18 +21,4 @@
             </ContentPage>
         </DataTemplate>
     </TabbedPage.ItemTemplate>
-
-    <NavigationPage Title="Noten">
-        <x:Arguments>
-            <local:MainPage>
-                <Label Text="Noten" FontSize="30" ClassId="title" Margin="0,0,20,50"/>
-                <TableView x:Name="Noten"></TableView>
-                <Button Text="LoginPage" Clicked="NavigateButton_OnClicked"/>
-            </local:MainPage>
-        </x:Arguments>
-        
-        
-        
-    </NavigationPage>
-
 </TabbedPage>

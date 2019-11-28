@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              x:Class="SchulNetzApp.Login">
     <ContentPage.Content>
         <StackLayout ClassId="" Margin="50,20,50,0">
@@ -15,6 +16,13 @@
             <Button x:Name="LoginBtn" BackgroundColor="#2695D7" Text="Login" Clicked="Login_click"></Button>
             <Image Source="erfolg.png"/>
 
+            <forms:AnimationView 
+                x:Name="animationView"
+	            Animation="6518-correct-check-animation.json" 
+	            Loop="True"  
+	            AutoPlay="false"
+	            VerticalOptions="FillAndExpand" 
+	            HorizontalOptions="FillAndExpand" />
 
 
         </StackLayout>
