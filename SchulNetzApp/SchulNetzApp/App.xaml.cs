@@ -10,6 +10,7 @@ namespace SchulNetzApp
         public static bool IsUserLoggedIn { get; set; }
         public App()
         {
+            onstartsub();
 
             InitializeComponent();
 
@@ -23,16 +24,17 @@ namespace SchulNetzApp
             }
 
         }
-
+            async void onstartsub()
+            {
+                if (!(string.IsNullOrWhiteSpace(await SecureStorage.GetAsync("username_token"))) && !(string.IsNullOrWhiteSpace(await SecureStorage.GetAsync("username_token"))))
+                {
+                IsUserLoggedIn = true;
+                }
+            }
         protected override void OnStart()
         {
-            // Handle when your app starts
-           // async void onStartSub() {
-           // if (!(string.IsNullOrWhiteSpace(await SecureStorage.GetAsync("username_token"))) && !(string.IsNullOrWhiteSpace(await SecureStorage.GetAsync("username_token"))))
-           // {
-           //     MainPage = new NavigationPage(new MainPage());
-           // }
-           //}
+            // Handle when your app startss
+
         }
 
         protected override void OnSleep()
