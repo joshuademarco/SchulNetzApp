@@ -54,8 +54,5 @@ namespace SchulNetzApp.Droid.Code
         }
 
 
-        
-
-
     }
 }

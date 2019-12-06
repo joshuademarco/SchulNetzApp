@@ -16,13 +16,19 @@ namespace SchulNetzApp
         IFirebaseAuthenticator IAuth;
         public Login()
         {
+            onstartsub();
             InitializeComponent();
             IAuth = DependencyService.Get<IFirebaseAuthenticator>();
-            OnLoad();        
+
         }
-        
-        public async void OnLoad()
+
+
+        async void onstartsub()
         {
+            if (!(string.IsNullOrWhiteSpace(await SecureStorage.GetAsync("username_token"))) && !(string.IsNullOrWhiteSpace(await SecureStorage.GetAsync("username_token"))))
+            {
+                await Navigation.PushModalAsync(new MainPage(), false);
+            }
         }
 
         public async void Login_click(object sender, EventArgs e)

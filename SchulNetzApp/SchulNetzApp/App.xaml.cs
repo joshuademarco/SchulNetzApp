@@ -11,7 +11,6 @@ namespace SchulNetzApp
         public App()
         {
             onstartsub();
-
             InitializeComponent();
 
             if (!IsUserLoggedIn)
@@ -30,10 +29,15 @@ namespace SchulNetzApp
                 {
                 IsUserLoggedIn = true;
                 }
+                else
+            {
+                MainPage = new NavigationPage(new Login());
+            }
             }
         protected override void OnStart()
         {
             // Handle when your app startss
+            
 
         }
 
@@ -46,13 +50,14 @@ namespace SchulNetzApp
         protected override void OnResume()
         {
             // Handle when your app resumes
-        //    async void OnResumeSub() { 
-        //    if (!(string.IsNullOrWhiteSpace(await SecureStorage.GetAsync("username_token"))) && !(string.IsNullOrWhiteSpace(await SecureStorage.GetAsync("username_token"))))
-        //    {
-        //        MainPage = new NavigationPage(new MainPage());
-        //    }
-        //}
-    }
+            onstartsub();
+            //    async void OnResumeSub() { 
+            //    if (!(string.IsNullOrWhiteSpace(await SecureStorage.GetAsync("username_token"))) && !(string.IsNullOrWhiteSpace(await SecureStorage.GetAsync("username_token"))))
+            //    {
+            //        MainPage = new NavigationPage(new MainPage());
+            //    }
+            //}
+        }
 
     
     }
