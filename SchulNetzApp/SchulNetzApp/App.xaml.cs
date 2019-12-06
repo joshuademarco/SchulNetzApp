@@ -20,7 +20,8 @@ namespace SchulNetzApp
             }
             else
             {
-                MainPage = new NavigationPage(new MainPage());
+                MainPage = new MainPage();
+                
             }
 
         }
@@ -33,7 +34,7 @@ namespace SchulNetzApp
             }
         protected override void OnStart()
         {
-            // Handle when your app startss
+            // Handle when your app starts
 
         }
 
