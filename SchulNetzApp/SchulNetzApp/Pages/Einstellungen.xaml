@@ -5,11 +5,50 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="SchulNetzApp.Pages.Einstellungen">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+
+
+    <StackLayout Margin="0,25,0,0">
+
+        <Label Text="Einstellungen" FontSize="30" ClassId="Noten_Class" Margin="20,0,0,30"/>
+
+
+
+        <TableView Intent="Settings">
+            <TableSection Title="Allgemein">
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="TouchID oder FaceID" FontSize="14" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="20,0,0,0"/>
+                        <Switch IsEnabled="False" HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
+                    </StackLayout>
+                </ViewCell>
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Mittelungen Empfangen" FontSize="14" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="20,0,0,0"/>
+                        <Switch IsEnabled="True" HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
+                    </StackLayout>
+                </ViewCell>
+            </TableSection>
+            <TableSection Title="Benutzerinformationen">
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal">
+                        <Entry Placeholder="Benutzername" InputTransparent="false" IsSpellCheckEnabled="False" Keyboard="Email" MaxLength="30" x:Name="UserInput" IsTextPredictionEnabled="True" Margin="20,0,0,0"/>
+                    </StackLayout>
+                </ViewCell> 
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal">
+                        <Entry Placeholder="Passwort" InputTransparent="False" IsSpellCheckEnabled="False" Keyboard="Default" MaxLength="50" x:Name="PassInput" IsPassword="True" IsTextPredictionEnabled="False" Margin="20,0,0,0"/>
+                    </StackLayout>
+                </ViewCell>
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal">
+                        <Button x:Name="LogoutBtn" BackgroundColor="#FD3B33" Text="Logout" CornerRadius="25" Margin="20,0,0,0"></Button>
+                    </StackLayout>
+                </ViewCell>
+            </TableSection>
+        </TableView>
+
+
+
+
+    </StackLayout>
 </ContentPage>

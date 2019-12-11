@@ -5,11 +5,26 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="SchulNetzApp.Pages.Agenda">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+      
+    
+    <StackLayout Margin="20,25,0,0">
+
+        <Label Text="Agenda" FontSize="30" ClassId="Noten_Class" Margin="0,0,0,30"/>
+
+        <DatePicker />
+        
+        
+
+
+<!--<CollectionView ItemsSource="">
+    <CollectionView.ItemsLayout>
+        <GridItemsLayout Span="2" Orientation="Vertical" />
+    </CollectionView.ItemsLayout><CollectionView.ItemTemplate>
+                <DataTemplate>
+                </DataTemplate>
+    </CollectionView.ItemTemplate>
+</CollectionView>-->
+
+
+    </StackLayout>
 </ContentPage>

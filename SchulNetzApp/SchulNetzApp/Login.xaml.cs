@@ -60,7 +60,7 @@ namespace SchulNetzApp
                         Device.BeginInvokeOnMainThread(() => { Debug.WriteLine("Login with Firebase Succesfull. Firebase UserToken: {0})", Token); });
                         animationView.Loop = false;
                         animationView.Animation = "6518-correct-check-animation.json";
-                        AccountStorage.SaveCredentials(usercred.Username, usercred.Password);
+                        AccountStorage.SaveCredentials(usercred.Username, usercred.Password, Token);
                         await Task.Delay(TimeSpan.FromSeconds(2));
                         Application.Current.Properties["IsLoggedIn"] = true;
                         App.IsUserLoggedIn = true;

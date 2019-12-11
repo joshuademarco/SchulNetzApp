@@ -10,7 +10,7 @@ namespace SchulNetzApp
 {
     public class AccountStorage
     {
-        public static async void SaveCredentials(string username  ,string password)
+        public static async void SaveCredentials(string username  ,string password, string Token)
         {
             if(!string.IsNullOrWhiteSpace(username) && !string.IsNullOrWhiteSpace(password))
             {
@@ -18,6 +18,7 @@ namespace SchulNetzApp
                 {
                     await SecureStorage.SetAsync("username_token" , username);
                     await SecureStorage.SetAsync("password_token" , password);
+                    await SecureStorage.SetAsync("token_token", Token);
                 }
                 catch (Exception e)
                 {

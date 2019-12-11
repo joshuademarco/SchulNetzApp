@@ -9,17 +9,40 @@
              IconImageSource="">
 
 
-    <StackLayout Margin="20,50,20,0">
-        <Label Text="Noten" FontSize="30" ClassId="Noten_Class" Margin="0,0,20,50"/>
+    <StackLayout Margin="0,25,0,0">
+        <Label Text="Noten" FontSize="30" ClassId="Noten_Class" Margin="20,0,0,30"/>
         
         
         <TableView Intent="Data" >
             <TableRoot>
-                <TableSection Title="{Binding Fach}">
+                <TableSection Title="Mathematik">
                     <ViewCell>
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="{Binding Test}" VerticalOptions="CenterAndExpand"/>
-                            <Label Text="{Binding Note}" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <Label Text="Kombinatorik" VerticalOptions="CenterAndExpand" Margin="25,0,0,0"/>
+                            <Label Text="5" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Margin="0,0,30,0"/>
+                           
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Wahrscheinlichkeiten" VerticalOptions="CenterAndExpand" Margin="25,0,0,0"/>
+                            <Label Text="2.8" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Margin="0,0,30,0"/>
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>
+                <TableSection Title="Französisch">
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Gerondifs" VerticalOptions="CenterAndExpand" Margin="25,0,0,0"/>
+                            <Label Text="3.25" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Margin="0,0,30,0"/>
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection> 
+                <TableSection Title="Englisch">
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Gerunds" VerticalOptions="CenterAndExpand" Margin="25,0,0,0"/>
+                            <Label Text="4.5" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Margin="0,0,30,0"/>
                         </StackLayout>
                     </ViewCell>
                 </TableSection>

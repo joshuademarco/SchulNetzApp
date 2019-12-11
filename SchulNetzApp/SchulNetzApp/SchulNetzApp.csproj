@@ -61,8 +61,4 @@
       <Generator>SettingsSingleFileGenerator</Generator>
     </None>
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Adapters\" />
-  </ItemGroup>
 </Project>
