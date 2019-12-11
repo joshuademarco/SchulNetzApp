@@ -5,38 +5,28 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="SchulNetzApp.Pages.Termine">
-    <StackLayout Margin="20,25,20,0">
-        
-        <Label Text="Termine" FontSize="30" ClassId="Noten_Class" Margin="0,0,20,20"/>
-        <Label Text="Tag" FontSize="20" ClassId="Noten_Class"/>
 
-        <TimePicker Time="10:00:00"/>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="45" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Label Text="Zeit" Grid.Row="0" Grid.Column="0" BackgroundColor="LightGray" FontSize="18"/>
-            <Label Text="" Grid.Row="0" Grid.Column="1" />
-            <Label Text="7:50-8:35" Grid.Row="1" Grid.Column="0" FontSize="18"/>
-            <Label Text="8:40-9:25" Grid.Row="2" Grid.Column="0" FontSize="18"/>
-            <Label Text="9:30-10:15" Grid.Row="3" Grid.Column="0" FontSize="18"/>
-            <Label Text="Mathematik" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="1" BackgroundColor="#11ABE7" Margin="30,0,30,0" Padding="0,7,0,0" TextColor="white" FontSize="20"/>
-            <Label Text="Mathematik" HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="1" BackgroundColor="#11ABE7" Margin="30,0,30,0" Padding="0,7,0,0" TextColor="white" FontSize="20"/>
-            <Label Text="Französisch" HorizontalTextAlignment="Center" Grid.Row="3" Grid.Column="1" BackgroundColor="#11ABE7" Margin="30,0,30,0" Padding="0,7,0,0" TextColor="white" FontSize="20"/>
-            <Label Text="001" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="1" Margin="30,30,30,0" TextColor="white" FontSize="17"/>
-            <Label Text="001" HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="1" Margin="30,30,30,0" TextColor="white" FontSize="17"/>
-            <Label Text="203" HorizontalTextAlignment="Center" Grid.Row="3" Grid.Column="1" Margin="30,30,30,0" TextColor="white" FontSize="17"/>
-        </Grid>
+
+    <StackLayout Margin="20,25,0,0">
+
+        <Label Text="Termine" FontSize="30" ClassId="Noten_Class" Margin="0,0,0,30"/>
+
+        <DatePicker />
+
+
+
+
+        <!--<CollectionView ItemsSource="">
+    <CollectionView.ItemsLayout>
+        <GridItemsLayout Span="2" Orientation="Vertical" />
+    </CollectionView.ItemsLayout><CollectionView.ItemTemplate>
+                <DataTemplate>
+                </DataTemplate>
+    </CollectionView.ItemTemplate>
+</CollectionView>-->
 
 
     </StackLayout>
+
+
 </ContentPage>
