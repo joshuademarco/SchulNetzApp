@@ -13,7 +13,7 @@
             <Entry Placeholder="Benutzername" InputTransparent="false" IsSpellCheckEnabled="False" Keyboard="Email" MaxLength="30" x:Name="UserInput" VerticalOptions="Center" IsTextPredictionEnabled="True" />
             <Entry Placeholder="Passwort" InputTransparent="False" IsSpellCheckEnabled="False" Keyboard="Default" MaxLength="50" x:Name="PassInput" IsPassword="True" IsTextPredictionEnabled="False" VerticalOptions="Center"/>
 
-            <Button x:Name="LoginBtn" BackgroundColor="#2695D7" Text="Login" Clicked="Login_click" CornerRadius="25"></Button>
+            <Button x:Name="LoginBtn" BackgroundColor="#2695D7" Text="Login" Clicked="Login_click" CornerRadius="25" Margin="0,35,0,0"></Button>
             <Label x:Name="lbltest"></Label>
             <forms:AnimationView 
                 x:Name="animationView"
