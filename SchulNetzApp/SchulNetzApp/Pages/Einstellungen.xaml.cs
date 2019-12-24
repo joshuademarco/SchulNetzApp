@@ -16,5 +16,13 @@ namespace SchulNetzApp.Pages
         {
             InitializeComponent();
         }
+
+        private async void LogoutBtn_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.Properties["IsLoggedIn"] = false;
+            App.IsUserLoggedIn = false;
+            AccountStorage.DeleteCredentials();
+            await Navigation.PushModalAsync(new Login(), true);
+        }
     }
 }

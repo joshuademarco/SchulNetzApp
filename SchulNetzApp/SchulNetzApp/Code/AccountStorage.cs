@@ -26,5 +26,16 @@ namespace SchulNetzApp
                 }
             }
         }
+        public static void DeleteCredentials()
+        {
+            try
+            {
+                SecureStorage.RemoveAll();
+            }
+            catch (Exception e)
+            {
+                Device.BeginInvokeOnMainThread(() => { Debug.WriteLine("An Error Occured while deleting the Secure Storage"); });
+            }
+        }
     }
 }

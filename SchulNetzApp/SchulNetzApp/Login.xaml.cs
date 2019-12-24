@@ -41,7 +41,6 @@ namespace SchulNetzApp
             {
                 animationView.Loop = false;
                 animationView.Animation = "6973-incorrect-failed.json";
-                throw new ApplicationException("Nothing Filled in");
             }
             else
             {
