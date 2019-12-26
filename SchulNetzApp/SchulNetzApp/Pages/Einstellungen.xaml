@@ -44,6 +44,11 @@
                         <Button x:Name="LogoutBtn" BackgroundColor="#FD3B33" Text="Logout" CornerRadius="25" Margin="20,0,0,0" Clicked="LogoutBtn_Clicked"></Button>
                     </StackLayout>
                 </ViewCell>
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal">
+                        <Button x:Name="RtvBtn" BackgroundColor="#FD3B33" Text="Logout" CornerRadius="25" Margin="20,0,0,0" Clicked="RtvBtn_Clicked"></Button>
+                    </StackLayout>
+                </ViewCell>
             </TableSection>
         </TableView>
 

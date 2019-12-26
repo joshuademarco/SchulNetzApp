@@ -6,6 +6,9 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Lottie.Forms;
 using Xamarin.Essentials;
+
+
+
 namespace SchulNetzApp
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,6 +13,7 @@ namespace SchulNetzApp.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Einstellungen : ContentPage
     {
+        IFirestore IFire;
         public Einstellungen()
         {
             InitializeComponent();
@@ -23,6 +25,12 @@ namespace SchulNetzApp.Pages
             App.IsUserLoggedIn = false;
             AccountStorage.DeleteCredentials();
             await Navigation.PushModalAsync(new Login(), true);
+        }
+
+        private async void RtvBtn_Clicked(object sender, EventArgs e)
+        {
+            string answer = await IFire.RetrieveFirestore(null, await SecureStorage.GetAsync("token_token"));
+            Debug.WriteLine(answer);
         }
     }
 }

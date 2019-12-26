@@ -1,24 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.SchulNetzApp">
-  <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="28" />
-
-
-	<application android:label="SchulNetzApp.Android">
-    <receiver
-      android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"
-      android:exported="false"
-      />
-      <receiver
-      android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
-      android:exported="true"
-      android:permission="com.google.andoird.c2m.permission.SEND">
-      
-        <intent-filter>
-           <action android:name="com.google.android.c2m.intent.RECIEVE"/>
-           <action android:name="com.google.android.c2m.intent.REGISTRATION"/>
-           <category android:name="${applicationId}"/>
-        </intent-filter>
-      
-      </receiver>
-  </application>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.SchulNetzApp" android:installLocation="auto">
+	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="28" />
+	<application android:label="SchulNetzApp.Android" android:icon="@drawable/logo">
+		<receiver android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver" android:exported="false" />
+		<receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:exported="true" android:permission="com.google.andoird.c2m.permission.SEND">
+			<intent-filter>
+				<action android:name="com.google.android.c2m.intent.RECIEVE" />
+				<action android:name="com.google.android.c2m.intent.REGISTRATION" />
+				<category android:name="${applicationId}" />
+			</intent-filter>
+		</receiver>
+	</application>
 </manifest>

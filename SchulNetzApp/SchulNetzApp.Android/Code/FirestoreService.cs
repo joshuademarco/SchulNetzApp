@@ -7,9 +7,61 @@ using Java.Util;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 
 namespace SchulNetzApp {
+
+
+    public class FirestoreService : IFirestore
+    {
+        HashMap map = new HashMap();
+
+        public async Task<string> RetrieveFirestore(string answer, string Token)
+        {
+            //var datab = FirebaseFirestore.Instance;
+            //DocumentReference docRef = datab.Collection("SchulNetzDB").Document("bQ671MqZuqUq4go0nRZGybHFvDo1");
+
+
+
+            try
+            {
+                map.Put("test", "123");
+                DocumentReference docRef = FirebaseFirestore.Instance
+                    .Collection("SchulNetzDB")
+                    .Document(await SecureStorage.GetAsync("token_token").ConfigureAwait(true));
+                await docRef.Set(map);
+                return "Success!";
+            }
+            catch (Exception e)
+            {
+                return e.ToString();
+            }
+
+            //map.Put("Test", "123");
+            //Firebase.Firestore.DocumentReference docRef = FirebaseFirestore.Instance.Collection("SchulNetzDB").Document("bQ671MqZuqUq4go0nRZGybHFvDo1");
+            //await docRef.Set(map);
+
+        }
+
+
+        //var snap = (QuerySnapshot)result;
+        //if (!snap.IsEmpty)
+        //{
+        //    var doc = snap.Documents;
+        //    foreach (DocumentSnapshot item in doc)
+        //    {
+        //        string uid = item.Get("name").ToString();
+        //        map.Put("uid: ", uid);
+        //    }
+        //}
+        //Debug.WriteLine(map);
+    }
+
+
+
+
+
 
 
     //    public class FirestoreServices : IOnSuccessListener

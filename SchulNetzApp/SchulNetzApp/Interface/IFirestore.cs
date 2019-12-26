@@ -1,6 +1,7 @@
 ﻿using SchulNetzApp.Pages;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SchulNetzApp
 {
@@ -8,7 +9,7 @@ namespace SchulNetzApp
     {
 
 
-
+        Task<string> RetrieveFirestore(string answer, string Token);
 
     }
 }
