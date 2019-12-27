@@ -8,6 +8,7 @@ using Android.Gms.Common;
 using Android.Support.V7.App;
 using Firebase.Messaging;
 using Firebase;
+using Firebase.Firestore;
 
 namespace SchulNetzApp.Droid
 {
@@ -19,7 +20,9 @@ namespace SchulNetzApp.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-            FirebaseApp.InitializeApp(Application.Context);
+            var Fapp = FirebaseApp.InitializeApp(Application.Context);
+            FirebaseFirestore.GetInstance(Fapp);
+
             base.OnCreate(savedInstanceState);
 
 
