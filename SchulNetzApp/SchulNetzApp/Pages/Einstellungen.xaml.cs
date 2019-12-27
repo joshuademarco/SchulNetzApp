@@ -33,7 +33,7 @@ namespace SchulNetzApp.Pages
 
         private async void RtvBtn_Clicked(object sender, EventArgs e)
         {
-            string answer = await IFire.RetrieveFirestore(await SecureStorage.GetAsync("token_token"));
+            string answer = await IFire.RetrieveFirestore(await SecureStorage.GetAsync("uid_token"));
             Debug.WriteLine(answer);
         }
     }

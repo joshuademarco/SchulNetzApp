@@ -25,6 +25,8 @@ namespace SchulNetzApp
 
         }
 
+        public IUser usercred = new IUser { };
+
 
         async void onstartsub()
         {
@@ -47,11 +49,8 @@ namespace SchulNetzApp
             }
             else
             {
-               var usercred = new IUser // nicht public??
-                {
-                    Username = UserInput.Text,
-                    Password = PassInput.Text
-                };
+                usercred.Username = UserInput.Text;
+                usercred.Password = PassInput.Text;
 
 
                 
@@ -62,7 +61,8 @@ namespace SchulNetzApp
                         Device.BeginInvokeOnMainThread(() => { Debug.WriteLine("Login with Firebase Succesfull. Firebase UserToken: {0})", Token); });
                         animationView.Loop = false;
                         animationView.Animation = "6518-correct-check-animation.json";
-                        AccountStorage.SaveCredentials(usercred.Username, usercred.Password, Token);
+                        usercred.UID = await SecureStorage.GetAsync("uid_token");
+                        AccountStorage.SaveCredentials(usercred.Username, usercred.Password, Token, usercred.UID);
                         await Task.Delay(TimeSpan.FromSeconds(2));
                         Application.Current.Properties["IsLoggedIn"] = true;
                         App.IsUserLoggedIn = true;

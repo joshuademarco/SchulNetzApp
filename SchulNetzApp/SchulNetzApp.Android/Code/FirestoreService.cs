@@ -23,6 +23,7 @@ namespace SchulNetzApp
 
         public async Task<string> RetrieveFirestore(string answer)
         { 
+
             answer = "Successs!";
             return answer;
         }
