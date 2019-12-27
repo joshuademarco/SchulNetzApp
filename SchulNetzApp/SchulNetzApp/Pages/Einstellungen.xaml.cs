@@ -7,16 +7,20 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using SchulNetzApp;
+using System.ComponentModel;
 
 namespace SchulNetzApp.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+    [DesignTimeVisible(true)]
     public partial class Einstellungen : ContentPage
     {
         IFirestore IFire;
         public Einstellungen()
         {
             InitializeComponent();
+            IFire = DependencyService.Get<IFirestore>();
         }
 
         private async void LogoutBtn_Clicked(object sender, EventArgs e)
@@ -29,7 +33,7 @@ namespace SchulNetzApp.Pages
 
         private async void RtvBtn_Clicked(object sender, EventArgs e)
         {
-            string answer = await IFire.RetrieveFirestore(null, await SecureStorage.GetAsync("token_token"));
+            string answer = await IFire.RetrieveFirestore(await SecureStorage.GetAsync("token_token"));
             Debug.WriteLine(answer);
         }
     }
