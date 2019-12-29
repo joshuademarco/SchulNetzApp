@@ -7,7 +7,8 @@ namespace SchulNetzApp
 {
     public interface IFirestore
     {
-        Task<string> RetrieveFirestore(string UID);
+        
+        Task<string> RtvAllF(string UID);
 
     }
 }

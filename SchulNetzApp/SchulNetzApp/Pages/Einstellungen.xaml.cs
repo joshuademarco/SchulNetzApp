@@ -23,7 +23,7 @@ namespace SchulNetzApp.Pages
             IFire = DependencyService.Get<IFirestore>();
         }
 
-        private async void LogoutBtn_Clicked(object sender, EventArgs e)
+        public async void LogoutBtn_Clicked(object sender, EventArgs e)
         {
             Application.Current.Properties["IsLoggedIn"] = false;
             App.IsUserLoggedIn = false;
@@ -31,9 +31,10 @@ namespace SchulNetzApp.Pages
             await Navigation.PushModalAsync(new Login(), true);
         }
 
-        private async void RtvBtn_Clicked(object sender, EventArgs e)
+        public async void RtvBtn_Clicked(object sender, EventArgs e)
         {
-            string answer = await IFire.RetrieveFirestore(await SecureStorage.GetAsync("uid_token"));
+            //string answer = await IFire.RetrieveFirestore(await SecureStorage.GetAsync("uid_token"));
+            string answer = await IFire.RtvAllF(await SecureStorage.GetAsync("uid_token"));
             Debug.WriteLine(answer);
         }
     }

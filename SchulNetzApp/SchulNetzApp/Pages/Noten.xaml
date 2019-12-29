@@ -6,8 +6,7 @@
              mc:Ignorable="d"
              x:Class="SchulNetzApp.Pages.Noten"
              Title="Noten"
-             IconImageSource=""
-             xmlns:sfgrid="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms">
+             IconImageSource="">
 
 
     <StackLayout Margin="0,25,0,0">
