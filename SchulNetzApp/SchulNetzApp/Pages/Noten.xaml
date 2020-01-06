@@ -6,12 +6,30 @@
              mc:Ignorable="d"
              x:Class="SchulNetzApp.Pages.Noten"
              Title="Noten"
-             IconImageSource="">
+             IconImageSource=""
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms">
 
+
+
+
+    <ContentPage.Content>
+        <syncfusion:SfDataGrid x:Name="NotenTable"
+                           ItemsSource="{Binding DataTableCollection}">
+        </syncfusion:SfDataGrid>
+    </ContentPage.Content>
 
     <StackLayout Margin="0,25,0,0">
-        <Label Text="Noten" FontSize="30" ClassId="Noten_Class" Margin="20,0,0,30"/>
-        <TableView Intent="Data" >
+
+
+
+
+
+
+
+
+
+            <!--<Label Text="Noten" FontSize="30" ClassId="Noten_Class" Margin="20,0,0,30"/>
+        <TableView Intent="Data" x:Name="NotenTable">
             <TableRoot>
                 <TableSection Title="Mathematik">
                     <ViewCell>
@@ -22,7 +40,7 @@
                     </ViewCell>
                 </TableSection>
             </TableRoot>
-        </TableView>
+        </TableView>-->
         
         
     </StackLayout>

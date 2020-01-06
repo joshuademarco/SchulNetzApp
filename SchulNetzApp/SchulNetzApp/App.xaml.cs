@@ -7,7 +7,6 @@ using Google.Cloud.Storage.V1;
 using Google.Apis.Auth.OAuth2;
 using System.IO;
 using System.Reflection;
-using SchulNetzApp.Interface;
 using System.Runtime.InteropServices;
 using Foundation;
 

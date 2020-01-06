@@ -9,6 +9,7 @@ namespace SchulNetzApp
     {
         
         Task<string> RtvAllF(string UID);
+        Task<string> RtvListen(string UID);
 
     }
 }
