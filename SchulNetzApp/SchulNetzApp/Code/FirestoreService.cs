@@ -69,18 +69,18 @@ namespace SchulNetzApp
         {
 
             Query RtvAllQ = db.Collection("SchulNetzDB").Document(UID).Collection("Fach");
-            faecher.QsnapF = await RtvAllQ.GetSnapshotAsync();
-            foreach (DocumentSnapshot snap in faecher.QsnapF.Documents)
+            QuerySnapshot qsnap = await RtvAllQ.GetSnapshotAsync();
+            foreach (DocumentSnapshot snap in qsnap)
             {
                 string ID = snap.Id;
                 Console.WriteLine("Document data for {0} document:", ID);
-                if (!faecher.Faecher.Tables.Contains(ID))
+                if (snap.Exists)
                     Console.WriteLine("New Fach: {0}", ID);
-                CreateTable(ID);
+            
                 Dictionary<string, object> tests = snap.ToDictionary();
                 foreach (KeyValuePair<string, object> test in tests)
                 {
-                    faecher.Faecher.Tables[ID].Rows.Add(test.Key, test.Value);
+                    Console.WriteLine("{0}: {1}", test.Key, test.Value);
                 }
             }
             return "Finish!";
