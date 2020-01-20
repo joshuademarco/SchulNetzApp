@@ -8,7 +8,7 @@ namespace SchulNetzApp
     public interface IFirestore
     {
         
-        Task<string> RtvAllF(string UID);
+        Task<Dictionary<string, Dictionary<string, object>>> RtvAllF(string UID);
         Task<string> RtvListen(string UID);
 
     }

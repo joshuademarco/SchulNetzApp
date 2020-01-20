@@ -13,7 +13,7 @@
 
 
 
-    <StackLayout Margin="0,25,0,0">
+    <!--<StackLayout Margin="0,25,0,0" x:Name="cont">
 
 
 
@@ -23,8 +23,8 @@
 
 
 
-            <Label Text="Noten" FontSize="30" ClassId="Noten_Class" Margin="20,0,0,30"/>
-        <TableView Intent="Data" x:Name="NotenTable">
+            <Label Text="Noten" FontSize="30" ClassId="Noten_Class" Margin="20,0,0,30"/>-->
+        <!--<TableView Intent="Data" x:Name="NotenTable">
             <TableRoot>
                 <TableSection Title="Mathematik">
                     <ViewCell>
@@ -57,8 +57,8 @@
                     </ViewCell>
                 </TableSection>
             </TableRoot>
-        </TableView>
+        </TableView>-->
         
         
-    </StackLayout>
+    <!--</StackLayout>-->
 </ContentPage>

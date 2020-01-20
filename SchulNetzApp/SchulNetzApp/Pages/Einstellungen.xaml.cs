@@ -33,9 +33,8 @@ namespace SchulNetzApp.Pages
 
         public async void RtvBtn_Clicked(object sender, EventArgs e)
         {
-            //string answer = await IFire.RetrieveFirestore(await SecureStorage.GetAsync("uid_token"));
-            string answer = await IFire.RtvAllF(await SecureStorage.GetAsync("uid_token"));
-            Debug.WriteLine(answer);
+
+            //string answer = await IFire.RetrieveFirestore(await SecureStorage.GetAsync("uid_token"));   
         }
     }
 }

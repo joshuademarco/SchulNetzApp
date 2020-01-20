@@ -24,9 +24,8 @@ namespace SchulNetzApp
 
 
 
-    public class FirestoreService : DataManager, IFirestore
+    public class FirestoreService : IFirestore
     {
-        public FachClass faecher;
 
         public string projectId = "schulnetz-86ea4";
 
@@ -65,35 +64,25 @@ namespace SchulNetzApp
 
 
 
-        public async Task<string> RtvAllF(string UID)
+        public async Task<Dictionary<string, Dictionary<string, object>>> RtvAllF(string UID)
         {
 
             Query RtvAllQ = db.Collection("SchulNetzDB").Document(UID).Collection("Fach");
             QuerySnapshot qsnap = await RtvAllQ.GetSnapshotAsync();
-            foreach (DocumentSnapshot snap in qsnap)
+            var faecher = new Dictionary<string, Dictionary<string, object>>();
+            foreach (DocumentSnapshot fach in qsnap)
             {
-                string ID = snap.Id;
-                Console.WriteLine("Document data for {0} document:", ID);
-                if (snap.Exists)
-                    Console.WriteLine("New Fach: {0}", ID);
-            
-                Dictionary<string, object> tests = snap.ToDictionary();
+                string ID = fach.Id;
+                if (fach.Exists)
+                    Console.WriteLine("Fach: {0}", ID);
+                    Dictionary<string, object> tests = fach.ToDictionary();
+                faecher.Add(ID, tests);
                 foreach (KeyValuePair<string, object> test in tests)
                 {
                     Console.WriteLine("{0}: {1}", test.Key, test.Value);
                 }
             }
-            return "Finish!";
-        }
-
-
-        public void CreateTable(string ID)
-        {
-            faecher.Faecher.Tables.Add(ID);
-
-            var table = faecher.Faecher.Tables[ID];
-            table.Columns.Add("Test", typeof(string));
-            table.Columns.Add("Note", typeof(int));
+            return faecher;
         }
 
             //try 
