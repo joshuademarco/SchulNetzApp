@@ -18,13 +18,13 @@
                 <ViewCell>
                     <StackLayout Orientation="Horizontal">
                         <Label Text="TouchID oder FaceID" FontSize="14" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="20,0,0,0"/>
-                        <Switch IsEnabled="False" HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
+                        <Switch IsEnabled="false" HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
                     </StackLayout>
                 </ViewCell>
                 <ViewCell>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Mittelungen Empfangen" FontSize="14" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="20,0,0,0"/>
-                        <Switch IsEnabled="True" HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
+                        <Label Text="Benachrichtigungen" FontSize="14" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="20,0,0,0"/>
+                        <Switch IsEnabled="true" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Toggled="FCM_Toggled"/>
                     </StackLayout>
                 </ViewCell>
             </TableSection>

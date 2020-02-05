@@ -15,8 +15,8 @@ using SchulNetzApp.Droid.Code;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using SchulNetzApp;
-
-
+using Firebase.Messaging;
+using Android.Gms.Extensions;
 
 [assembly: Xamarin.Forms.Dependency(typeof(AndroidFirebaseAuthenticator))]
     
@@ -26,7 +26,8 @@ namespace SchulNetzApp.Droid.Code
 
     public class AndroidFirebaseAuthenticator : IFirebaseAuthenticator
     {
-    
+        public FirebaseMessaging fcm = FirebaseMessaging.Instance;
+
         public async Task<string> LoginWithEmailPassword(string username, string password)
         {
             try

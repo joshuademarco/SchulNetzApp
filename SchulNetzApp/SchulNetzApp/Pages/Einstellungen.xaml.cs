@@ -17,6 +17,7 @@ namespace SchulNetzApp.Pages
     public partial class Einstellungen : ContentPage
     {
         IFirestore IFire;
+      
         public Einstellungen()
         {
             InitializeComponent();
@@ -35,6 +36,12 @@ namespace SchulNetzApp.Pages
         {
 
             //string answer = await IFire.RetrieveFirestore(await SecureStorage.GetAsync("uid_token"));   
+        }
+
+        public async void FCM_Toggled(object sender, ToggledEventArgs e)
+        {
+            string answer = await IFire.FCM_Toggles(await SecureStorage.GetAsync("uid_token"), e.Value);
+            Console.WriteLine(answer);
         }
     }
 }

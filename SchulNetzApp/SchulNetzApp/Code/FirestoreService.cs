@@ -42,6 +42,22 @@ namespace SchulNetzApp
                   'client_x509_cert_url': 'https://www.googleapis.com/robot/v1/metadata/x509/schulnetzdienstkonto%40schulnetz-86ea4.iam.gserviceaccount.com'
                 }").CreateScoped(FirestoreClient.DefaultScopes).ToChannelCredentials())));
 
+        public async Task<string> FCM_Toggles(string UID, bool state)
+        {
+                try
+                {
+                    DocumentReference docRef = db.Collection("SchulNetzDB").Document(UID);
+                    Dictionary<string, object> push = new Dictionary<string, object>
+                    {
+                        { "fcm", state}
+};
+                    await docRef.SetAsync(push);
+
+                }
+                catch (Exception e) { return e.ToString(); }
+                return "Success!";
+        }
+
 
 
         //public async Task<string> RetrieveFirestore(string UID)

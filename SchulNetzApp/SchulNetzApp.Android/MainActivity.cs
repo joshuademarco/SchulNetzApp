@@ -41,7 +41,6 @@ namespace SchulNetzApp.Droid
 
 
 
-
         //private bool IsPlayServicesAvailable()
         //{
         //  FirebaseApp.InitializeApp(Application.Context);

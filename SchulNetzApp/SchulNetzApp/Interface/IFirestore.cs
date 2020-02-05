@@ -10,6 +10,7 @@ namespace SchulNetzApp
         
         Task<Dictionary<string, Dictionary<string, object>>> RtvAllF(string UID);
         Task<string> RtvListen(string UID);
+        Task<string> FCM_Toggles(string UID,bool state);
 
     }
 }
