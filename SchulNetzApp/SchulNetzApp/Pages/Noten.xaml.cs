@@ -57,21 +57,40 @@ namespace SchulNetzApp.Pages
                 //ew TableSection() {Title=fach.Key };
                 foreach (KeyValuePair<string, object> test in fach.Value)
                 {
+                    
+
                     var layout = new StackLayout() { Orientation = StackOrientation.Horizontal };
+   
                     layout.Children.Add(new Label()
                     {
                         Text = test.Key,
                         VerticalOptions = LayoutOptions.CenterAndExpand,
-                        Margin = new Thickness (25,0,0,0)
+                        Margin = new Thickness (25,0,0,0),
 
                     });
-                    layout.Children.Add(new Label()
+                    
+                    if (Convert.ToDecimal(test.Value) < 4)
                     {
-                        Text = test.Value.ToString(),
-                        HorizontalOptions = LayoutOptions.EndAndExpand,
-                        VerticalOptions = LayoutOptions.CenterAndExpand,
-                        Margin = new Thickness(0, 0, 30, 0)
-                    });
+                        layout.Children.Add(new Label()
+                        {
+                            Text = test.Value.ToString(),
+                            HorizontalOptions = LayoutOptions.EndAndExpand,
+                            VerticalOptions = LayoutOptions.CenterAndExpand,
+                            Margin = new Thickness(0, 0, 30, 0),
+                            TextColor = Color.Orange
+                        });
+                    } else
+                    {
+                        layout.Children.Add(new Label()
+                        {
+                            Text = test.Value.ToString(),
+                            HorizontalOptions = LayoutOptions.EndAndExpand,
+                            VerticalOptions = LayoutOptions.CenterAndExpand,
+                            Margin = new Thickness(0, 0, 30, 0),
+                        });
+                    }
+
+
                     //new ViewCell();
                     //new StackLayout();
                     //new Label() {Text=test.Key };
