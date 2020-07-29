@@ -1,1 +1,5 @@
 # SchulNetzApp
+This is a small piece of my project for my Matura thesis. It is completely built up on the Xamarin framework, which mainly combines .NET (C#) and XALM.  The main idea is to break down the UI of our web-based grade system from [SchulNetz](https://www.schul-netz.com/) into its necessities and add features like visualizations and push notifications.
+
+## Notice
+Xamarin is a great way to program cross platform apps. It combines easy languages and a big marketplace for plugins. Unfortunately my experience with it wasn't really satisfying. I lost a lot of time solving many difficulties with the framework itself. Problems that couldn't even be solved by my IT-teacher were keeping me from the product I wanted. For inexplicable reasons, the project doesn't seem to be buildable on every device. (Problems occur independet to the versions of the compiler and any asses)      If you wish to learn more about this project, don't hesitate to send me a message. The work i wrote for this project is available on demand. (German only)
